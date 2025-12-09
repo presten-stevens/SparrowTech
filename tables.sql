@@ -1,7 +1,6 @@
 -- ===========================================
 -- SparrowTech Database Schema
 -- ===========================================
-SET FOREIGN_KEY_CHECK = 0;
 
 DROP TABLE IF EXISTS Inventory; 
 DROP TABLE IF EXISTS Purchase; 
@@ -21,8 +20,6 @@ DROP TABLE IF EXISTS Item;
 DROP TABLE IF EXISTS Monitor;
 DROP TABLE IF EXISTS Mouse; 
 DROP TABLE IF EXISTS Keyboard; 
-
-SET FOREIGN_KEY_CHECK = 1; 
 
 CREATE TABLE Location (
     location_id     INT PRIMARY KEY,

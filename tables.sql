@@ -6,7 +6,7 @@
 -- Location
 -- -------------------
 CREATE TABLE Location (
-    location_id     INT PRIMARY KEY,
+    location_id     INT PRIMARY KEY AUTO_INCREMENT,
     state           CHAR(2),
     city            VARCHAR(50),
     revenue         INT,
@@ -17,7 +17,7 @@ CREATE TABLE Location (
 -- Employee
 -- -------------------
 CREATE TABLE Employee (
-    employee_id INT PRIMARY KEY,
+    employee_id INT PRIMARY KEY AUTO_INCREMENT,
     salary      INT,
     hourly      INT,
     name        VARCHAR(50),
@@ -30,7 +30,7 @@ CREATE TABLE Employee (
 -- Component (Supertype)
 -- -------------------
 CREATE TABLE Component (
-    component_id INT PRIMARY KEY,
+    component_id INT PRIMARY KEY AUTO_INCREMENT,
     price        DECIMAL(7,2)
 );
 
@@ -77,7 +77,7 @@ CREATE TABLE Display (
 -- Computer
 -- -------------------
 CREATE TABLE Computer (
-    computer_id INT PRIMARY KEY,
+    computer_id INT PRIMARY KEY AUTO_INCREMENT,
     price       DECIMAL(7,2),
     employee_id INT,
     location_id INT,
@@ -100,7 +100,7 @@ CREATE TABLE ComputerComponent (
 -- Item (supertype for retail products)
 -- -------------------
 CREATE TABLE Item (
-    item_id INT PRIMARY KEY,
+    item_id INT PRIMARY KEY AUTO_INCREMENT,
     price   DECIMAL(7,2)
 );
 
@@ -142,7 +142,7 @@ CREATE TABLE Accessory (
 -- Customer (Supertype)
 -- -------------------
 CREATE TABLE Customer (
-    customer_id INT PRIMARY KEY
+    customer_id INT PRIMARY KEY AUTO_INCREMENT
 );
 
 -- -------------------
@@ -170,7 +170,7 @@ CREATE TABLE Private (
 -- Purchase
 -- -------------------
 CREATE TABLE Purchase (
-    purchase_id   INT PRIMARY KEY,
+    purchase_id   INT PRIMARY KEY AUTO_INCREMENT,
     customer_id   INT,
     purchase_date DATE,
     FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
@@ -180,7 +180,7 @@ CREATE TABLE Purchase (
 -- Inventory (tracks physical stock)
 -- -------------------
 CREATE TABLE Inventory (
-    inventory_id INT PRIMARY KEY,
+    inventory_id INT PRIMARY KEY AUTO_INCREMENT,
     item_id      INT,
     computer_id  INT,
     purchase_id  INT,

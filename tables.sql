@@ -1,6 +1,5 @@
--- ===========================================
+
 -- SparrowTech Database Schema
--- ===========================================
 SET FOREIGN_KEY_CHECKS = 0;
 
 DROP TABLE IF EXISTS Inventory; 
@@ -182,19 +181,16 @@ CREATE TABLE Inventory (
     FOREIGN KEY (component_id) REFERENCES Component(component_id)
 );
 
+-- =========================
 
--- =========================
 -- LOCATIONS
--- =========================
 INSERT INTO Location (location_id, state, city, revenue, street_address) VALUES
 (1, 'CA', 'San Jose', 2500000, '100 Silicon Ave'),
 (2, 'TX', 'Austin', 1800000, '200 Tech Blvd'),
 (3, 'VA', 'Arlington', 3100000, '50 Defense Way'),
 (4, 'WA', 'Seattle', 2200000, '88 Cloud Pkwy');
 
--- =========================
 -- EMPLOYEES
--- =========================
 INSERT INTO Employee (employee_id, salary, hourly, name, position, location_id) VALUES
 (1, 95000, NULL, 'Alice Johnson', 'Manager', 1),
 (2, 72000, NULL, 'Brian Chen', 'Technician', 1),
@@ -204,9 +200,8 @@ INSERT INTO Employee (employee_id, salary, hourly, name, position, location_id) 
 (6, NULL, 32, 'Frank Miller', 'Support', 3),
 (7, NULL, 28, 'Grace Lee', 'Sales', 4);
 
--- =========================
--- COMPONENTS (standard + premium)
--- =========================
+
+-- COMPONENTS 
 INSERT INTO Component (component_id, price, cost) VALUES
 (1001, 299.99, 180.00),(1002, 499.99, 320.00),(1003, 899.99, 610.00),
 (1004, 129.99, 85.00),(1005, 159.99,105.00),(1006, 799.99,560.00),
@@ -216,9 +211,7 @@ INSERT INTO Component (component_id, price, cost) VALUES
 (8003,40000.00,30000.00),(8004,90000.00,70000.00),
 (8005,120000.00,95000.00);
 
--- =========================
 -- CPU
--- =========================
 INSERT INTO CPU VALUES
 (1001,'Intel i5-13600K',14,20,'3.5GHz'),
 (1002,'Intel i7-13700K',16,24,'3.4GHz'),
@@ -226,9 +219,7 @@ INSERT INTO CPU VALUES
 (8001,'Xeon Ultra 128-Core',128,256,'5.2GHz'),
 (8002,'Threadripper Pro X',96,192,'5.0GHz');
 
--- =========================
 -- GPU
--- =========================
 INSERT INTO GPU VALUES
 (1006,8,'RTX 4060','2.5GHz'),
 (1007,12,'RTX 4070','2.6GHz'),
@@ -237,24 +228,18 @@ INSERT INTO GPU VALUES
 (8004,144,'A1000 Data Center GPU','3.2GHz'),
 (8005,192,'Quantum Acceleration Module','4.0GHz');
 
--- =========================
 -- RAM
--- =========================
 INSERT INTO RAM VALUES
 (1004,16,'DDR5'),
 (1005,32,'DDR5'),
 (1010,64,'DDR5');
 
--- =========================
 -- DISPLAY
--- =========================
 INSERT INTO Display VALUES
 (1008,'IPS','1920x1080'),
 (1011,'OLED','2560x1440');
 
--- =========================
 -- COMPUTERS
--- =========================
 INSERT INTO Computer (computer_id, price, base_cost, employee_id, location_id) VALUES
 (9001,149999.99,110000.00,1,1),
 (9002,129999.99,95000.00,2,1),
@@ -266,9 +251,7 @@ INSERT INTO Computer (computer_id, price, base_cost, employee_id, location_id) V
 (5003,2499.99,1750.00,5,3),
 (5004,2999.99,2150.00,7,4);
 
--- =========================
 -- COMPUTER COMPONENTS
--- =========================
 INSERT INTO ComputerComponent (computer_id, component_id) VALUES
 (9001,8001),(9001,8003),(9001,8004),
 (9002,8002),(9002,8003),
@@ -280,37 +263,27 @@ INSERT INTO ComputerComponent (computer_id, component_id) VALUES
 (5003,1003),(5003,1012),(5003,1010),
 (5004,1001),(5004,1006),(5004,1004);
 
--- =========================
 -- ITEMS
--- =========================
 INSERT INTO Item VALUES
 (2001,299.99,210.00),(2002,79.99,55.00),(2003,129.99,85.00),
 (2004,499.99,380.00),(2005,59.99,40.00),(2006,39.99,25.00);
 
--- =========================
 -- MONITORS
--- =========================
 INSERT INTO Monitor VALUES
 (2001,'Dell UltraSharp U2723QE',27),
 (2004,'Samsung Odyssey G9',49);
 
--- =========================
 -- MICE
--- =========================
 INSERT INTO Mouse VALUES
 (2002,16000,'Logitech G Pro X'),
 (2005,12000,'Razer DeathAdder V3');
 
--- =========================
 -- KEYBOARDS
--- =========================
 INSERT INTO Keyboard VALUES
 (2003,'Keychron K10 Pro'),
 (2006,'Logitech MX Keys');
 
--- =========================
 -- CUSTOMERS
--- =========================
 INSERT INTO Customer VALUES
 (3001),(3002),(3003),(3004),(3005),(3006),(3007),(3008),(3009),(3010),(3011);
 
@@ -323,16 +296,13 @@ INSERT INTO Government VALUES
 (3010,'CIA','Director Anne Cole'),
 (3011,'Department of Energy','Dr. Steven Yu');
 
--- =========================
 -- PRIVATE CUSTOMERS
--- =========================
 INSERT INTO Private VALUES
 (3005,'Credit Card','Doe','John'),
 (3006,'Debit Card','Smith','Jane'),
 (3007,'PayPal','Brown','Chris'),
 (3008,'Credit Card','Wilson','Taylor');
 
--- =========================
 -- PURCHASES
 INSERT INTO Purchase (purchase_id, customer_id, purchase_date) VALUES
 -- 2024 Q1
